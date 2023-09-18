@@ -7,7 +7,7 @@
       "chipFamily": "ESP32",
       "parts": [
         {
-          "path": "p1touch.web.0.8.0.bin",
+          "path": "p1touch.web.0.8.1.bin",
           "offset": 0
         }
       ]
