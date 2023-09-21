@@ -42,6 +42,7 @@
         width: 100%;
         padding-top: 10px;
         padding-bottom: 10px;
+        text-indent: 10px;
         margin-bottom: 15px;
         border: 1px solid #ccc;
         border-radius: 6px;
@@ -53,7 +54,7 @@
         border: none;
         padding: 10px 20px;
         cursor: pointer;
-        border-radius: 3px;
+        border-radius: 6px;
         width: 100%;
       }
 
@@ -90,7 +91,33 @@
       <input type="text" id="ssid" name="ssid" />
       <label for="pwd">Enter SSID Password</label>
       <input type="password" id="pwd" name="pwd" />
+      <label for="pwd">Timeout*</label>
+      <div>
+        <input
+          type="range"
+          name="timeout"
+          id="timeout"
+          min="3000"
+          max="30000"
+          value="3000"
+          oninput="this.form.timeoutValue.value=(this.value+'ms')"
+          style="width: 220px"
+        />
+        <input
+          type="text"
+          name="timeoutValue"
+          maxlength="5"
+          readonly=""
+          value="3000ms"
+          style="display: inline-block; width: 60px"
+        />
+      </div>
       <input type="submit" value="Generate wifi.json file" />
+      <p>
+        <strong>* Note:</strong> Modifying the WiFi Timeout is recommended only
+        if you encounter Wi-Fi connection problems. Leave as is if you don't
+        experience connectivity issues.
+      </p>
     </form>
 
     <a id="downloadLink"></a>
@@ -101,12 +128,17 @@
         .addEventListener("submit", function (e) {
           e.preventDefault();
 
-          const ssidValue = document.getElementById("ssid").value;
-          const pwdValue = document.getElementById("pwd").value;
+          const ssid = document.getElementById("ssid").value;
+          const pwd = document.getElementById("pwd").value;
+          const timeout = parseInt(
+            document.getElementById("timeout").value,
+            10
+          );
 
           const jsonData = {
-            ssid: ssidValue,
-            pwd: pwdValue,
+            ssid,
+            pwd,
+            timeout,
           };
 
           const jsonString = JSON.stringify(jsonData, null, 2);
