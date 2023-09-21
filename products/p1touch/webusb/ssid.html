@@ -88,9 +88,15 @@
 
     <form id="ssidPwdForm">
       <label for="ssid">Enter SSID</label>
-      <input type="text" id="ssid" name="ssid" />
+      <input type="text" id="ssid" name="ssid" required="required" />
       <label for="pwd">Enter SSID Password</label>
-      <input type="password" id="pwd" name="pwd" />
+      <input
+        type="password"
+        id="pwd"
+        name="pwd"
+        required="required"
+        pattern="^.{8,}$"
+      />
       <label for="pwd">Timeout*</label>
       <div>
         <input
