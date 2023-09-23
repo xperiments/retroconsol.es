@@ -29,7 +29,7 @@ jobs:
           git config --local user.name "Pedro Casaubon"
 
           # Commit the changes
-          git add products/p1touch/resource/hms.json
+          git add products/p1touch/resources/hms.json
           git commit -m "Update hms.json"
 
           # Push the changes back to the original repository
