@@ -1,0 +1,24 @@
+name: test
+
+on:
+  push:
+    branches:
+      - main  # Cambia esto a la rama en la que deseas activar la descarga
+
+jobs:
+  download_and_process:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del Repositorio
+        uses: actions/checkout@v2
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # Selecciona la versión de Node.js que desees
+
+      - name: test
+        run: |
+          # Realizar la descarga del archivo con Node.js
+          node scripts/download.js
