@@ -3,7 +3,7 @@ const https = require('https');
 
 // URL del archivo a descargar
 const url = 'https://e.bambulab.com/query.php?lang=en';
-const archivoDescargado = 'archivo-descargado.txt';
+const archivoDescargado = 'products/p1touch/resource/hms.json';
 
 // Realizar la descarga del archivo
 https.get(url, (response) => {

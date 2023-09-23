@@ -22,3 +22,15 @@ jobs:
         run: |
           # Realizar la descarga del archivo con Node.js
           node scripts/download.js
+
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.email "xperiments@gmail.com"
+          git config --local user.name "Pedro Casaubon"
+
+          # Commit the changes
+          git add products/p1touch/resource/hms.json
+          git commit -m "Update hms.json"
+
+          # Push the changes back to the original repository
+          git push origin main          
